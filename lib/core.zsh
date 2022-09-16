@@ -17,6 +17,9 @@ spaceship::core::load_sections() {
     if spaceship::defined "spaceship_$section"; then
       # Custom section is declared, nothing else to do
       continue
+    elif [[ -f "$SPACESHIP_CUSTOM/sections/$section.zsh" ]]; then
+      builtin source "$SPACESHIP_CUSTOM/sections/$section.zsh"
+      spaceship::precompile "$SPACESHIP_CUSTOM/sections/$section.zsh"
     elif [[ -f "$SPACESHIP_ROOT/sections/$section.zsh" ]]; then
       builtin source "$SPACESHIP_ROOT/sections/$section.zsh"
       spaceship::precompile "$SPACESHIP_ROOT/sections/$section.zsh"

@@ -118,6 +118,11 @@ done
 # Load and precompile this file
 spaceship::precompile "$0"
 
+# Custom sections directory
+if [[ -z "$SPACESHIP_CUSTOM" ]]; then
+    SPACESHIP_CUSTOM="${XDG_CONFIG_HOME:="$HOME/.config"}/spaceship/custom"
+fi
+
 # ------------------------------------------------------------------------------
 # BACKWARD COMPATIBILITY WARNINGS
 # Show deprecation messages for options that are set, but not supported
